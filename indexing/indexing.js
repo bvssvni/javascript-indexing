@@ -1,10 +1,12 @@
 /**
  * javascript-indexing, A javascript library for sorted lists of integers.
  *
- * @version 0.000, http://isprogrammingeasy.blogspot.no/2012/08/angular-degrees-versioning-notation.html
+ * @version 0.001, http://isprogrammingeasy.blogspot.no/2012/08/angular-degrees-versioning-notation.html
  * @license GNU Lesser General Public License, http://www.gnu.org/copyleft/lesser.html
  * @author  Sven Nilsen, http://www.cutoutpro.com
  * @link    http://www.github.com/bvssvni/javascript-indexing
+ *
+ * 0.001 - Added 'indexOf'.
  */
 
 // Finds the last number in list that is less than current item.
@@ -59,6 +61,15 @@ function indexing_after (list, item) {
 
 // Boolean algebra or = union.
 function indexing_or (a, b) {
+    if (a === null) {
+        console.log ("a is null");
+        return;
+    }
+    if (b === null) {
+        console.log ("b is null");
+        return;
+    }
+
     var list = [];
     var ai = 0;
     var bi = 0;
@@ -82,6 +93,15 @@ function indexing_or (a, b) {
 
 // Boolean algebra and = intersect.
 function indexing_and (a, b) {
+    if (a === null) {
+        console.log ("a is null");
+        return;
+    }
+    if (b === null) {
+        console.log ("b is null");
+        return;
+    }
+
     var list = [];
     var ai = 0;
     var bi = 0;
@@ -107,6 +127,15 @@ function indexing_and (a, b) {
 
 // Boolean algebra except = and not.
 function indexing_except (a, b) {
+    if (a === null) {
+        console.log ("a is null");
+        return;
+    }
+    if (b === null) {
+        console.log ("b is null");
+        return;
+    }
+
     var list = [];
     var ai = 0;
     var bi = 0;
@@ -130,3 +159,26 @@ function indexing_except (a, b) {
     return list;
 }
 
+// Returns index of item in list.
+// If not found, returns -(next + 1) which can be converted back for insertion.
+function indexing_indexOf (list, item) {
+    if (list === null) {
+        console.log ("list is null");
+        return;
+    }
+    if (item === null) {
+        console.log ("item is null");
+        return;
+    }
+
+    var low = 0, high = list.length - 1, i, comparison;
+    while (low <= high) {
+        i = Math.floor((low + high) / 2);
+        if (list[i] < item) { low = i + 1; continue; };
+        if (list[i] > item) { high = i - 1; continue; };
+        
+        return i;
+    }
+    
+    return -(low + 1);
+}

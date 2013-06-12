@@ -115,3 +115,59 @@ function test_indexing_except () {
     
     return true;
 }
+
+function test_indexing_indexOf () {
+    var a = [1, 2, 3];
+    if (indexing_indexOf (a, 1) != 0) {
+        console.log ("unit test failed!");
+        return false;
+    }
+    if (indexing_indexOf (a, 2) != 1) {
+        console.log ("unit test failed!");
+        return false;
+    }
+    if (indexing_indexOf (a, 3) != 2) {
+        console.log ("unit test failed!");
+        return false;
+    }
+    if (indexing_indexOf (a, 0) != -1) {
+        console.log ("unit test failed!");
+        return false;
+    }
+    if (indexing_indexOf (a, 4) != -4) {
+        console.log ("unit test failed!");
+        return false;
+    }
+
+    var b = [1, 4, 6];
+    if (indexing_indexOf (b, 1) != 0) {
+        console.log ("unit test failed!");
+        return false;
+    }
+    if (indexing_indexOf (b, 2) != -2) {
+        console.log ("unit test failed!");
+        return false;
+    }
+    if (indexing_indexOf (b, 3) != -2) {
+        console.log ("unit test failed!");
+        return false;
+    }
+    if (indexing_indexOf (b, 4) != 1) {
+        console.log ("unit test failed!");
+        return false;
+    }
+    if (indexing_indexOf (b, 5) != -3) {
+        console.log ("unit test failed!");
+        return false;
+    }
+    if (indexing_indexOf (b, 6) != 2) {
+        console.log ("unit test failed!");
+        return false;
+    }
+    if (indexing_indexOf (b, 7) != -4) {
+        console.log ("unit test failed!");
+        return false;
+    }
+
+    return true;
+}
