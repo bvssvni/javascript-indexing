@@ -57,3 +57,76 @@ function indexing_after (list, item) {
     return after;
 }
 
+// Boolean algebra or = union.
+function indexing_or (a, b) {
+    var list = [];
+    var ai = 0;
+    var bi = 0;
+    var max = 9007199254740992;
+    while (ai < a.length || bi < b.length) {
+        var aItem = ai < a.length ? a [ai] : max;
+        var bItem = bi < b.length ? b [bi] : max;
+        var min = aItem < bItem ? aItem : bItem;
+        if (aItem === min) {
+            ai++;
+        }
+        if (bItem === min) {
+            bi++;
+        }
+
+        list.push (min);
+    }
+
+    return list;
+}
+
+// Boolean algebra and = intersect.
+function indexing_and (a, b) {
+    var list = [];
+    var ai = 0;
+    var bi = 0;
+    var max = 9007199254740992;
+    while (ai < a.length && bi < b.length) {
+        var aItem = ai < a.length ? a [ai] : max;
+        var bItem = bi < b.length ? b [bi] : max;
+        var min = aItem < bItem ? aItem : bItem;
+        if (aItem === min) {
+            ai++;
+        }
+        if (bItem === min) {
+            bi++;
+        }
+
+        if (aItem === min && bItem === min) {
+            list.push (min);
+        }
+    }
+    
+    return list;
+}
+
+// Boolean algebra except = and not.
+function indexing_except (a, b) {
+    var list = [];
+    var ai = 0;
+    var bi = 0;
+    var max = 9007199254740992;
+    while (ai < a.length && bi < b.length) {
+        var aItem = ai < a.length ? a [ai] : max;
+        var bItem = bi < b.length ? b [bi] : max;
+        var min = aItem < bItem ? aItem : bItem;
+        if (aItem === min) {
+            ai++;
+        }
+        if (bItem === min) {
+            bi++;
+        }
+
+        if (aItem === min && bItem !== min) {
+            list.push (min);
+        }
+    }
+
+    return list;
+}
+

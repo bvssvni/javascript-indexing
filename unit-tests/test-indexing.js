@@ -48,5 +48,70 @@ function test_indexing_after () {
         console.log ("unit test failed!");
         return false;
     }
+
+    return true;
 }
 
+function test_indexing_or () {
+    var a = [1, 2, 3];
+    var b = [2, 3, 4];
+    var c = indexing_or (a, b);
+    if (c.length != 4) {
+        console.log ("unit test failed!");
+        return false;
+    }
+    if (c [0] != 1) {
+        console.log ("unit test failed!");
+        return false;
+    }
+    if (c [1] != 2) {
+        console.log ("unit test failed!");
+        return false;
+    }
+    if (c[2] != 3) {
+        console.log ("unit test failed!");
+        return false;
+    }
+    if (c[3] != 4) {
+        console.log ("unit test failed!");
+        return false;
+    }
+
+    return true;
+}
+
+function test_indexing_and () {
+    var a = [1, 2, 3];
+    var b = [2, 3, 4];
+    var c = indexing_and (a, b);
+    if (c.length != 2) {
+        console.log ("unit test failed!");
+        return false;
+    }
+    if (c [0] != 2) {
+        console.log ("unit test failed!");
+        return false;
+    }
+    if (c [1] != 3) {
+        console.log ("unit test failed!");
+        return false;
+    }
+
+    return true;
+}
+
+function test_indexing_except () {
+    var a = [1, 2, 3];
+    var b = [2, 3, 4];
+    var c = indexing_except (a, b);
+    if (c.length != 1) {
+        console.log ("unit test failed!");
+        return false;
+    }
+    if (c [0] != 1) {
+        console.log ("unit test failed!");
+        return false;
+    }
+    
+    return true;
+}

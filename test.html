@@ -10,7 +10,10 @@
 
             function loaded () {
                 var test = test_indexing_before () &&
-                    test_indexing_after ();
+                    test_indexing_after () &&
+                    test_indexing_or () &&
+                    test_indexing_and () &&
+                    test_indexing_except ();
                 if (test) {
                     console.log ("unit tests succeeded");
                 }
